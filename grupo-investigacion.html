@@ -1,80 +1,128 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo de Investigación - [Nombre de tu Grupo]</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background: #34495e;
-            padding: 0.5rem;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-    </style>
+  <title>Research Group - Diego Gerardo Roldán</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <header>
-        <h1>Grupo de Investigación [Nombre]</h1>
-        <p>Universidad [Nombre] - Facultad [Nombre]</p>
-    </header>
-    
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#investigacion">Investigación</a>
-        <a href="#miembros">Miembros</a>
-        <a href="#publicaciones">Publicaciones</a>
-    </nav>
 
-    <div class="container">
-        <section id="nosotros" class="section">
-            <h2>Sobre Nosotros</h2>
-            <p>Información sobre el grupo de investigación...</p>
-        </section>
-
-        <section id="investigacion" class="section">
-            <h2>Líneas de Investigación</h2>
-            <ul>
-                <li>Línea 1</li>
-                <li>Línea 2</li>
-                <li>Línea 3</li>
-            </ul>
-        </section>
-
-        <section id="miembros" class="section">
-            <h2>Miembros del Grupo</h2>
-            <!-- Aquí lista a los investigadores -->
-        </section>
-
-        <section id="publicaciones" class="section">
-            <h2>Publicaciones</h2>
-            <!-- Lista de publicaciones -->
-        </section>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="grupo-investigacion.html">Research Group</a></li>
+        <li><a href="index.html#publications">Publications</a></li> 
+        <li><a href="index.html#lectures">Lectures</a></li> 
+        <li><a href="index.html#seminar">Applied Math Seminar</a></li>
+        <li><a href="index.html#news">News</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-md-8">
+            <h2>Research Group</h2>
+            
+            <div class="section">
+                <h3>About Our Group</h3>
+                <p>Information about your research group's mission, focus areas, and objectives.</p>
+            </div>
+
+            <div class="section">
+                <h3>Research Lines</h3>
+                <ul>
+                    <li><strong>Quantum Computing:</strong> Research on quantum algorithms and applications</li>
+                    <li><strong>Artificial Intelligence:</strong> Machine learning and deep learning applications</li>
+                    <li><strong>Image Processing:</strong> Advanced techniques in image analysis and processing</li>
+                    <li><strong>Numerical Analysis:</strong> Development of numerical methods for complex problems</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Team Members</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Principal Investigator</h4>
+                        <p><strong>Dr. Diego Gerardo Roldán</strong><br>
+                        Head of Applied Mathematics Master's Program</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Research Students</h4>
+                        <p>List of master's and doctoral students</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Current Projects</h3>
+                <ul>
+                    <li>Project 1: Description</li>
+                    <li>Project 2: Description</li>
+                    <li>Project 3: Description</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Collaborations</h3>
+                <p>Information about academic and industry collaborations.</p>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <div style="font-family: 'Oswald', sans-serif; font-size: 28px;"><b>Research Group</b></div><br>
+            
+            <div class="well">
+                <h4>Contact</h4>
+                <p><b>dgroldanj at unal.edu.co</b><br>
+                Department of Mathematics<br>
+                National University of Colombia<br>
+                Office 323, Yu Takeuchi building</p>
+            </div>
+
+            <div class="well">
+                <h4>Quick Links</h4>
+                <ul class="list-unstyled">
+                    <li><a href="index.html">Back to Home</a></li>
+                    <li><a href="index.html#publications">Publications</a></li>
+                    <li><a href="index.html#lectures">Lecture Materials</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.well {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+</style>
+
 </body>
 </html>
