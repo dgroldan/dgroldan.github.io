@@ -416,31 +416,42 @@
 </footer>
 
 <script>
-    // Countdown Timer CORREGIDO
+    // VERSIÓN DE PRUEBA - Eliminar después de verificar
+    console.log("Countdown script cargado");
+    
     function updateCountdown() {
-        // Especificar fecha completa: 13 de Noviembre 2024, 7:30 AM
-        const eventDate = new Date('2024-11-13T07:30:00').getTime();
-        const now = new Date().getTime();
-        const distance = eventDate - now;
+        console.log("Ejecutando countdown...");
+        
+        const eventDate = new Date('2024-11-13T07:30:00');
+        const now = new Date();
+        
+        console.log("Fecha evento:", eventDate);
+        console.log("Fecha ahora:", now);
+        
+        const distance = eventDate.getTime() - now.getTime();
+        console.log("Diferencia:", distance);
         
         if (distance < 0) {
             document.getElementById("countdown-timer").innerHTML = 
-                `<h4>¡El evento está en curso o ha finalizado!</h4>`;
+                `<h4>¡El evento está próximo!</h4>`;
             return;
         }
         
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
         document.getElementById("countdown-timer").innerHTML = 
-            `<h4>${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos</h4>`;
+            `<h4>${days} días y ${hours} horas</h4>`;
     }
     
-    // Actualizar cada segundo
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Llamar inmediatamente
+    // Verificar que el elemento existe
+    if (document.getElementById("countdown-timer")) {
+        console.log("Elemento countdown-timer encontrado");
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    } else {
+        console.log("Elemento countdown-timer NO encontrado");
+    }
 </script>
 
 </body>
