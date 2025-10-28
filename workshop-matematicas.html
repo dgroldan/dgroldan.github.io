@@ -416,41 +416,31 @@
 </footer>
 
 <script>
-    // Countdown Timer
+    // Countdown Timer CORREGIDO
     function updateCountdown() {
-        const eventDate = new Date('2024-11-13').getTime();
+        // Especificar fecha completa: 13 de Noviembre 2024, 7:30 AM
+        const eventDate = new Date('2024-11-13T07:30:00').getTime();
         const now = new Date().getTime();
         const distance = eventDate - now;
         
         if (distance < 0) {
             document.getElementById("countdown-timer").innerHTML = 
-                `<h4>¡El evento está en curso!</h4>`;
+                `<h4>¡El evento está en curso o ha finalizado!</h4>`;
             return;
         }
         
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
         document.getElementById("countdown-timer").innerHTML = 
-            `<h4>${days} días, ${hours} horas y ${minutes} minutos</h4>`;
+            `<h4>${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos</h4>`;
     }
     
+    // Actualizar cada segundo
     setInterval(updateCountdown, 1000);
-    updateCountdown();
-    
-    // Smooth scrolling for navigation links
-    $(document).ready(function(){
-        $('a[href^="#"]').on('click', function(event) {
-            var target = $(this.getAttribute('href'));
-            if( target.length ) {
-                event.preventDefault();
-                $('html, body').stop().animate({
-                    scrollTop: target.offset().top - 70
-                }, 1000);
-            }
-        });
-    });
+    updateCountdown(); // Llamar inmediatamente
 </script>
 
 </body>
