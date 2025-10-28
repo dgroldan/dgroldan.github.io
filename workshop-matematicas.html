@@ -416,19 +416,39 @@
 </footer>
 
 <script>
-    // VERSIÓN SUPER SIMPLE
+    // Countdown Timer para 2025 - VERSIÓN MEJORADA
     function updateCountdown() {
-        const eventDate = new Date('November 13, 2024 07:30:00').getTime();
+        const eventDate = new Date('2025-11-13T07:30:00').getTime();
         const now = new Date().getTime();
         const distance = eventDate - now;
         
+        const countdownElement = document.getElementById("countdown-timer");
+        
+        if (distance < 0) {
+            // Si ya pasó la fecha del primer día
+            const eventEndDate = new Date('2025-11-14T13:15:00').getTime();
+            const distanceToEnd = eventEndDate - now;
+            
+            if (distanceToEnd < 0) {
+                countdownElement.innerHTML = `<h4>🎉 El evento ha finalizado. ¡Gracias por participar!</h4>`;
+            } else {
+                countdownElement.innerHTML = `<h4>🚀 ¡El evento está en curso! Únete a nosotros.</h4>`;
+            }
+            return;
+        }
+        
+        // Calcular días, horas, minutos y segundos
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        document.getElementById("countdown-timer").innerHTML = 
-            `<h4>${days} días y ${hours} horas</h4>`;
+        // Mostrar el countdown
+        countdownElement.innerHTML = 
+            `<h4>${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos</h4>`;
     }
     
+    // Iniciar el countdown
     setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
