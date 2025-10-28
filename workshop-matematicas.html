@@ -416,26 +416,11 @@
 </footer>
 
 <script>
-    // VERSIÓN DE PRUEBA - Eliminar después de verificar
-    console.log("Countdown script cargado");
-    
+    // VERSIÓN SUPER SIMPLE
     function updateCountdown() {
-        console.log("Ejecutando countdown...");
-        
-        const eventDate = new Date('2024-11-13T07:30:00');
-        const now = new Date();
-        
-        console.log("Fecha evento:", eventDate);
-        console.log("Fecha ahora:", now);
-        
-        const distance = eventDate.getTime() - now.getTime();
-        console.log("Diferencia:", distance);
-        
-        if (distance < 0) {
-            document.getElementById("countdown-timer").innerHTML = 
-                `<h4>¡El evento está próximo!</h4>`;
-            return;
-        }
+        const eventDate = new Date('November 13, 2024 07:30:00').getTime();
+        const now = new Date().getTime();
+        const distance = eventDate - now;
         
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -444,14 +429,8 @@
             `<h4>${days} días y ${hours} horas</h4>`;
     }
     
-    // Verificar que el elemento existe
-    if (document.getElementById("countdown-timer")) {
-        console.log("Elemento countdown-timer encontrado");
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    } else {
-        console.log("Elemento countdown-timer NO encontrado");
-    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 </script>
 
 </body>
