@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop de Matemáticas Aplicadas y Encuentro de Egresados - UNAL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .logo-container img {
+            height: 80px;
+        }
+        .countdown {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .schedule-table th {
+            background: #2c3e50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            vertical-align: top;
+        }
+        .schedule-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .day-header {
+            background: #3498db !important;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .speaker-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+        }
+        .break-session {
+            background: #ecf0f1;
+            font-style: italic;
+        }
+        .section-title {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin: 40px 0 20px 0;
+            color: #2c3e50;
+        }
+        .contact-info {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Workshop Matemáticas Aplicadas 2024</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#about">Acerca del Evento</a></li>
+                <li><a href="#programa">Programa</a></li>
+                <li><a href="#speakers">Conferencistas</a></li>
+                <li><a href="#registro">Participación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero-section">
+    <div class="container">
+        <div class="logo-container">
+            <img src="UNAL_Aplicación_Bogotá.svg (1).png" alt="Universidad Nacional de Colombia">
+            <img src="logo-mcma.PNG" alt="Maestría en Ciencias - Matemática Aplicada">
+        </div>
+        
+        <h1>Workshop de Matemáticas Aplicadas</h1>
+        <h2>Encuentro de Egresados de la Maestría en Matemática Aplicada</h2>
+        <p class="lead">13 y 14 de Noviembre, 2024 | Salón 201 - Edificio 404 Yu Takeuchi</p>
+        
+        <div class="countdown">
+            <h3>¡El evento comienza en!</h3>
+            <div id="countdown-timer">
+                <h4>Cargando...</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="margin-top: 50px;">
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Acerca del Evento</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <p>El <strong>Workshop de Matemáticas Aplicadas y Encuentro de Egresados</strong> reúne a estudiantes, 
+                investigadores, profesionales y egresados del programa de Maestría en Matemática Aplicada 
+                de la Universidad Nacional de Colombia para fomentar la creación de redes de colaboración 
+                entre la comunidad académica y profesionales en el campo de las matemáticas aplicadas.</p>
+                
+                <h3>🎯 Objetivos</h3>
+                <h4>Objetivo General</h4>
+                <p>Fomentar la creación de redes de colaboración entre la comunidad académica y profesionales 
+                en el campo de las matemáticas aplicadas.</p>
+                
+                <h4>Objetivos Específicos</h4>
+                <ul>
+                    <li>Promover el intercambio de conocimientos sobre aplicaciones matemáticas en contextos industriales y organizacionales</li>
+                    <li>Difundir investigaciones y experiencias relacionadas con oportunidades en la industria colombiana</li>
+                    <li>Socializar avances en matemáticas aplicadas mediante presentaciones académicas y casos de estudio</li>
+                    <li>Establecer vínculos de colaboración entre universidades, profesionales y estudiantes</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-info">
+                    <h3>📅 Información General</h3>
+                    <p><strong>Fechas:</strong><br>13 y 14 de Noviembre, 2024</p>
+                    <p><strong>Lugar:</strong><br>Salón 201<br>Edificio 404 Yu Takeuchi<br>Universidad Nacional de Colombia<br>Sede Bogotá</p>
+                    <p><strong>Costo:</strong><br>Entrada Gratuita</p>
+                    <p><strong>Modalidad:</strong><br>Presencial</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programa Section -->
+    <section id="programa" style="margin-top: 50px;">
+        <h2 class="section-title">📋 Programa del Evento</h2>
+        
+        <h3>Día 1 - 13 de Noviembre</h3>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th width="15%">Hora</th>
+                    <th width="50%">Actividad</th>
+                    <th width="35%">Expositor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>7:30 - 8:15</td>
+                    <td>Quantum graph learning: Frontiers and Outlook</td>
+                    <td>Diego Gerardo Roldan</td>
+                </tr>
+                <tr class="break-session">
+                    <td>8:20 - 8:50</td>
+                    <td colspan="2">Café</td>
+                </tr>
+                <tr>
+                    <td>9:00 - 9:45</td>
+                    <td>TBD</td>
+                    <td>Jeisson Prieto</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 10:45</td>
+                    <td>"Propiedades de la palabra de Fibonacci y de sus factores"</td>
+                    <td>Juan Triana</td>
+                </tr>
+                <tr class="break-session">
+                    <td>10:45 - 11:15</td>
+                    <td colspan="2">Receso</td>
+                </tr>
+                <tr>
+                    <td>11:45 - 12:30</td>
+                    <td>Sistemas Organ-on-a-Chip para el Estudio del Cáncer: Fabricación, Modelado Computacional y Ensayos con Fármacos Antitumorales</td>
+                    <td>Andres Gonzalez</td>
+                </tr>
+                <tr>
+                    <td>12:30 - 13:15</td>
+                    <td>Estimating the output gap after COVID: How to address unprecedented macroeconomic variations</td>
+                    <td>Daniel Parra</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Día 2 - 14 de Noviembre</h3>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th width="15%">Hora</th>
+                    <th width="50%">Actividad</th>
+                    <th width="35%">Expositor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="break-session">
+                    <td>8:20 - 8:50</td>
+                    <td colspan="2">Café</td>
+                </tr>
+                <tr>
+                    <td>9:00 - 9:45</td>
+                    <td>Generalization of Hoedding decomposition under dependence</td>
+                    <td>Fabrice Gamboa</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 10:45</td>
+                    <td>De matemáticas y desastres</td>
+                    <td>Mario Yandar</td>
+                </tr>
+                <tr class="break-session">
+                    <td>10:45 - 11:15</td>
+                    <td colspan="2">Receso</td>
+                </tr>
+                <tr>
+                    <td>11:45 - 12:30</td>
+                    <td>Solución Numérica del Modelo FitzHugh-Nagumo En Medios Heterogéneos</td>
+                    <td>Juan Hernandez</td>
+                </tr>
+                <tr>
+                    <td>12:30 - 13:15</td>
+                    <td>On the estimation of the parameters of Gaussian processes</td>
+                    <td>Agnes Lagnoux</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" style="margin-top: 50px;">
+        <h2 class="section-title">🎤 Conferencistas</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Diego Gerardo Roldan</h4>
+                    <p><strong>Charla:</strong> Quantum graph learning: Frontiers and Outlook</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Jeisson Prieto</h4>
+                    <p><strong>Charla:</strong> TBD</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Juan Triana</h4>
+                    <p><strong>Charla:</strong> "Propiedades de la palabra de Fibonacci y de sus factores"</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Andres Gonzalez</h4>
+                    <p><strong>Charla:</strong> Sistemas Organ-on-a-Chip para el Estudio del Cáncer</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Daniel Parra</h4>
+                    <p><strong>Charla:</strong> Estimating the output gap after COVID</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Fabrice Gamboa</h4>
+                    <p><strong>Charla:</strong> Generalization of Hoedding decomposition under dependence</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Mario Yandar</h4>
+                    <p><strong>Charla:</strong> De matemáticas y desastres</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Juan Hernandez</h4>
+                    <p><strong>Charla:</strong> Solución Numérica del Modelo FitzHugh-Nagumo</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="speaker-card">
+                    <h4>Agnes Lagnoux</h4>
+                    <p><strong>Charla:</strong> On the estimation of the parameters of Gaussian processes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registro Section -->
+    <section id="registro" style="margin-top: 50px;">
+        <h2 class="section-title">📝 Participación</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Información para Participar</h3>
+                <p>El Workshop de Matemáticas Aplicadas y Encuentro de Egresados es un evento <strong>gratuito</strong> 
+                abierto a toda la comunidad académica y profesional interesada en las matemáticas aplicadas.</p>
+                
+                <div class="alert alert-success">
+                    <h4>🎯 Público Objetivo</h4>
+                    <ul>
+                        <li>Estudiantes de pregrado y posgrado en matemáticas</li>
+                        <li>Egresados de la Maestría en Matemática Aplicada</li>
+                        <li>Investigadores y académicos</li>
+                        <li>Profesionales de la industria</li>
+                        <li>Público general interesado en aplicaciones matemáticas</li>
+                    </ul>
+                </div>
+                
+                <h4>📚 Temas a Tratar</h4>
+                <ul>
+                    <li>Computación cuántica y aprendizaje automático</li>
+                    <li>Matemáticas discretas y teoría de números</li>
+                    <li>Modelado computacional en biomedicina</li>
+                    <li>Análisis económico y macroeconomía</li>
+                    <li>Procesos estocásticos y Gaussianos</li>
+                    <li>Modelado de sistemas biológicos</li>
+                    <li>Matemáticas aplicadas a desastres naturales</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-info">
+                    <h4>📍 Ubicación</h4>
+                    <p><strong>Salón 201</strong><br>
+                    Edificio 404 Yu Takeuchi<br>
+                    Universidad Nacional de Colombia<br>
+                    Sede Bogotá<br>
+                    Cra 45 # 26-85</p>
+                    
+                    <h4>⏰ Horario</h4>
+                    <p><strong>13 de Noviembre:</strong> 7:30 - 13:15<br>
+                    <strong>14 de Noviembre:</strong> 8:20 - 13:15</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" style="margin-top: 50px;">
+        <h2 class="section-title">📞 Contacto</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <h4>Coordinación del Evento</h4>
+                    <p><strong>📧 Email:</strong> dgroldanj@unal.edu.co</p>
+                    <p><strong>🏛️ Departamento de Matemáticas</strong><br>
+                    Universidad Nacional de Colombia<br>
+                    Sede Bogotá</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <h4>Organizadores</h4>
+                    <p><strong>Maestría en Ciencias - Matemática Aplicada</strong><br>
+                    Departamento de Matemáticas<br>
+                    Universidad Nacional de Colombia<br>
+                    Sede Bogotá</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer style="background: #2c3e50; color: white; padding: 30px 0; margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="UNAL_Aplicación_Bogotá.svg (1).png" alt="UNAL" height="60" style="margin-bottom: 15px;">
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="logo-mcma.PNG" alt="Maestría Matemática Aplicada" height="60" style="margin-bottom: 15px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2024 Workshop de Matemáticas Aplicadas - Universidad Nacional de Colombia</p>
+                <p>Departamento de Matemáticas | Maestría en Ciencias - Matemática Aplicada</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Countdown Timer
+    function updateCountdown() {
+        const eventDate = new Date('2024-11-13').getTime();
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+        
+        if (distance < 0) {
+            document.getElementById("countdown-timer").innerHTML = 
+                `<h4>¡El evento está en curso!</h4>`;
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        
+        document.getElementById("countdown-timer").innerHTML = 
+            `<h4>${days} días, ${hours} horas y ${minutes} minutos</h4>`;
+    }
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    
+    // Smooth scrolling for navigation links
+    $(document).ready(function(){
+        $('a[href^="#"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if( target.length ) {
+                event.preventDefault();
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top - 70
+                }, 1000);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
