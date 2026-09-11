@@ -1,283 +1,557 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
-  <title>Diego Gerardo Roldán </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <meta name="description" content="Academic homepage of Diego Gerardo Roldán — applied mathematics, scientific computing, numerical analysis and quantum computing.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Diego Gerardo Roldán — Mathematics</title>
+
+  <style>
+    :root {
+      --paper: #f2f2f0;
+      --paper-2: #e9e9e6;
+      --ink: #1e1e1d;
+      --muted: #666663;
+      --soft: #8a8a86;
+      --line: #cfcfca;
+      --deep: #111110;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)),
+        var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration-color: #9a9a95;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover {
+      color: #000;
+      text-decoration-color: #000;
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 54px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 28px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    .role {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      font-size: .95rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    nav a:hover { color: var(--deep); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(250px, .75fr);
+      gap: 72px;
+      padding: 72px 0 58px;
+      align-items: start;
+    }
+
+    .lead {
+      font-size: clamp(1.42rem, 2.5vw, 1.9rem);
+      line-height: 1.48;
+      margin: 0 0 30px;
+      max-width: 760px;
+      letter-spacing: -0.01em;
+    }
+
+    .reflection {
+      margin: 36px 0 0;
+      padding-left: 22px;
+      border-left: 1px solid #a8a8a3;
+      color: #4e4e4b;
+      font-size: 1.02rem;
+      font-style: italic;
+      max-width: 700px;
+    }
+
+    .portrait {
+      margin: 0;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%) contrast(.94) brightness(.98);
+      opacity: .94;
+      border: 1px solid #d2d2cd;
+    }
+
+    .portrait figcaption {
+      max-width: 330px;
+      margin-top: 11px;
+      color: var(--soft);
+      font-size: .78rem;
+      line-height: 1.45;
+    }
+
+    section {
+      padding: 54px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 44px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: .88rem;
+      font-weight: 400;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.06rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    p { margin: 0 0 18px; }
+
+    .research-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .research-list li {
+      padding: 15px 0;
+      border-bottom: 1px solid #dadad5;
+    }
+
+    .research-list li:first-child { padding-top: 0; }
+
+    .research-list strong {
+      display: block;
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin-bottom: 3px;
+    }
+
+    .research-list span {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .paper {
+      padding: 0 0 25px;
+      margin: 0 0 25px;
+      border-bottom: 1px solid #dadad5;
+    }
+
+    .paper:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .paper-title {
+      font-size: 1.06rem;
+      line-height: 1.45;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.55;
+    }
+
+    .quiet-link {
+      font-size: .9rem;
+      white-space: nowrap;
+    }
+
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 42px;
+    }
+
+    .teaching-item {
+      border-top: 1px solid #d3d3ce;
+      padding-top: 13px;
+    }
+
+    .teaching-item p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .contact-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+    }
+
+    .small {
+      font-size: .91rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 48px;
+      color: var(--soft);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 760px) {
+      header { padding-top: 34px; }
+
+      .topline {
+        display: block;
+      }
+
+      nav {
+        margin-top: 25px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding-top: 48px;
+      }
+
+      .portrait {
+        order: -1;
+      }
+
+      .portrait img {
+        max-width: 270px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .teaching-grid,
+      .contact-block {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
+
 <body>
-
-
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-			          <li><a href="#lectures">Lectures</a></li> 
-			          <li><a href="#seminar">Applied Math Seminar</a></li>
-			          <li><a href="#news">News</a></li>
-			          <li><a href="workshop-matematicas.html">Workshop 2025</a></li> <!-- NUEVO ENLACE --> 
-			          <!-- <li><a href="#">CV</a></li> -->
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="imagen1.gif" alt=""><br>
-                <h3 id="about">About me</h3>
-                <div style="margin-top:3%; text-align:justify;">                
-					    <p>I am the head of the <a href="https://sites.google.com/unal.edu.co/matematicas-unal/programas-acad%C3%A9micos/maestr%C3%ADa-en-ciencias-matem%C3%A1tica-aplicada" target="_blank" rel="noopener noreferrer">Master of Sciences in Applied Mathematics</a> within the <a href="https://sites.google.com/unal.edu.co/matematicas-unal" target="_blank" rel="noopener noreferrer">Department of Mathematics</a> 
-       at <a href="https://bogota.unal.edu.co/" target="_blank" rel="noopener noreferrer">UNAL Bogota</a>. Also, I am the deputy head for the center of excelence in
-							scientific computing <a href="https://cecc.unal.edu.co/" target="_blank" rel="noopener noreferrer">CECC</a>
-    </p>
-   
-    <p>I was awarded as Dr.rer.nat from TU Kaiserslautern (renamed in 2023 to <a href="https://rptu.de" target="_blank" rel="noopener noreferrer">RPTU</a>) in 2021 under the supervision of 
-                                           <a href="https://math.rptu.de/ags/stat/personen/leitung" target="_blank" rel="noopener noreferrer">Claudia Redenbach</a> and <a href="https://www.itwm.fraunhofer.de/en/departments/bv/staff/katja-schladitz.html" target="_blank" rel="noopener noreferrer">Katja Schladitz</a>. 
-                                           I was supported by a scholarship of the <a href="https://www.daad.de/en/" target="_blank" rel="noopener noreferrer">DAAD: German Academic Exchange Service</a> and <a href="https://www.itwm.fraunhofer.de/" target="_blank" rel="noopener noreferrer">the Institute Fraunhofer for Industrial and Applied Mathematics (ITWM)</a>, 
-					   where I was a member of the department of image processing.
-			                </p>
-			                 <p>Also, I have an EngD from <a href="https://www.tue.nl/en/" target="_blank" rel="noopener noreferrer">TU/e</a> in Industrial Mathematics in 2016, and                
-			                   I obtained my BSc and MSc degrees in Mathematics and Applied Mathematics in 2009 and 2012 from <a href="https://sites.google.com/unal.edu.co/matematicas-unal" target="_blank" rel="noopener noreferrer">Department of Mathematics</a> 
-					   at <a href="https://bogota.unal.edu.co/" target="_blank" rel="noopener noreferrer">UNAL Bogota</a>. My research interests are in quantum computing, artificial intelligence, image processing, and numerical analysis.
-					</p>
-	<!-- NUEVA SECCIÓN PARA EL GRUPO DE INVESTIGACIÓN -->
-    <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #2c3e50; margin: 20px 0;">
-        <h4>Research Group in Quantum Computing</h4>
-        <p>Learn more about our research activities, team members, and ongoing projects.</p>
-        <a href="grupo-investigacion.html" class="btn btn-primary">Visit Research Group Page</a>
-    </div>
-			                <hr /> 
-			                <!-- <p> New paragraph.</p> -->
-					</div>
-					
-					  <!-- </div> -->
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>Diego Gerardo Roldan</b></div><br>
-                <img class="img-responsive" src="AG_Statistik_7b.gif" width="300"  alt=""><br>
-		<p><b>dgroldanj at unal.edu.co</b><br>
-                <p>Head of M.Sc. »Applied Mathematics« <br>
-				<p>Deputy Head Center of excelence in scientific computation »CECC«  <br>	
-		Department of Mathematics<br>
-                National University of Colombia <br>
-                Cra 45 # 26-85<br>
-		Oficce 323, Yu Takeuchi building<br>	
-                Bogotá, <br>
-                Colombia<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AOV7GLPQhhhpnU0fAG3pivOP4QG9lKvZ64Q0WxND-jcIUttl2Z21t-SNHla3BdkNuG9Zlx2p2FKaFG2L7sfml8d0CL_qkg5Ll47F0E5nIQjH&user=XyhukLMAAAAJ">Google Scholar</a></dd> 
-              <dd><a href="https://co.linkedin.com/in/diego-roldan-69304a5a">LinkedIn</a></dd>
-	      <!-- <dd><a href="#">Twitter</a></dd> -->	    
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h3 id="publications">Latest Publications</h3>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-		<li class="paper"> D. Roldán, L. Barbosa (2024).<br>
-                <strong>Curtaining Artifacts Generation on Synthetic Fib-Sem Data Via Generative Adversarial Networks.</strong><br>
-                 Optics Communications.<br>
-                <a href="https://www.sciencedirect.com/science/article/pii/S0030401824007661" target="_blank" rel="noopener noreferrer">[doi]</a> 
-                </li><br>
-			
-                <li class="paper"> D. Roldán, C. Redenbach, K. Schladitz, C. Küebel, and S. Schlabach(2023).<br>
-                <strong>Image Quality Evaluation for FIB-SEM Images.</strong><br>
-                 Journal of Microscopy.<br>
-                <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jmi.13254" target="_blank" rel="noopener noreferrer">[doi]</a> 
-                </li><br>
-			
-                <li class="paper"> D. Roldán, C. Redenbach, K. Schladitz, M. Klingele and M. Godehardt (2021).<br>
-                <strong>Reconstructing porous structures from FIB-SEM image data: Optimizing sampling scheme and image processing.</strong><br>
-                Ultramicroscopy, vol. 226, no. 113291.<br>
-                <a href="https://doi.org/10.1016/j.ultramic.2021.113291" target="_blank" rel="noopener noreferrer">[doi]</a>
-                </li><br>
-
-                <li class="paper">T. Prill, C. Redenbach, D. Roldan, M. Godehardt, K. Schladitz, S. Höhn, and K. Sempf(2020).<br>
-                <strong>Simulating permeabilities based on 3D image data of a layered nano-porous membrane.</strong><br>
-                L. Calatroni, M. Donatelli, S. Morigi, M. Prato and M. Santacesaria (eds.)<br>
-                International Journal of Solids and Structures, 184, 3-13.<br>
-                <a href="https://doi.org/10.1016/j.ijsolstr.2019.04.010" target="_blank" rel="noopener noreferrer">[doi]</a> 
-                </li><br>
-		
-			
-                </ul>
-                            
-            </div>
-		
-<!-- Lectures -->
-<div class="col-md-8" style="height: 100vh;">
-<h3 id="lectures">Lectures</h3>
-<strong>2026-1</strong><br />
-<ul>
-<ul>
-<li class="paper">Quantum computig fundamentals.<br /><a href="https://drive.google.com/drive/folders/1u7_rrbJx0o2G0A1lHhHDpFdOmmsVTm4q?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>
-<br />
-<ul>
-<ul>
-<li class="paper">Integral calculus.<br /><a href="https://drive.google.com/drive/folders/137UTQn86fUua2Q5jf19Z6fpjYALE9TOa?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>	
-<strong>2025-2</strong><br />
-<ul>
-<ul>
-<li class="paper">Numerical Analysis.<br /><a href="https://drive.google.com/drive/folders/1u7_rrbJx0o2G0A1lHhHDpFdOmmsVTm4q?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>
-<br />
-<ul>
-<ul>
-<li class="paper">Graph theory.<br /><a href="https://drive.google.com/drive/folders/137UTQn86fUua2Q5jf19Z6fpjYALE9TOa?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>	
-<strong>2025-1</strong><br />
-<ul>
-<ul>
-<li class="paper">Quantum computing fundamentals.<br /><a href="https://drive.google.com/drive/folders/1u7_rrbJx0o2G0A1lHhHDpFdOmmsVTm4q?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>
-<br />
-<ul>
-<ul>
-<li class="paper">Numerical methods and programming.<br /><a href="https://drive.google.com/drive/folders/137UTQn86fUua2Q5jf19Z6fpjYALE9TOa?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>	
-<strong>2024-2</strong><br />
-<ul>
-<ul>
-<li class="paper">Intro to Artificial Inteligence.<br /><a href="https://drive.google.com/drive/folders/1u7_rrbJx0o2G0A1lHhHDpFdOmmsVTm4q?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>
-<br />
-<ul>
-<ul>
-<li class="paper">Numerical methods and programming.<br /><a href="https://drive.google.com/drive/folders/137UTQn86fUua2Q5jf19Z6fpjYALE9TOa?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</ul>
-<p><strong>2024-1</strong></p>
-<ul>
-<li style="list-style-type: none;">
-<ul>
-<li>&nbsp;Numerical Analysis.<br /><a href="https://drive.google.com/drive/folders/1u7_rrbJx0o2G0A1lHhHDpFdOmmsVTm4q?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li style="list-style-type: none;">
-<ul>
-<li>Theory of Computation.<br /><a href="https://drive.google.com/drive/folders/1u7_rrbJx0o2G0A1lHhHDpFdOmmsVTm4q?usp=drive_link" target="_blank" rel="noopener noreferrer">[Material]</a></li>
-</ul>
-</li>
-</ul>
-
-
-<!-- News -->
-<div class="col-md-8" style="height: 100vh;">
-    <h3 id="news">News</h3>
-    
-    <!-- NUEVO BANNER DEL WORKSHOP -->
-    <div style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 25px; border-radius: 10px; margin: 20px 0; text-align: center;">
-        <h3>Workshop de Matemáticas Aplicadas 2025</h3>
-        <p><strong>13-14 Noviembre | Universidad Nacional de Colombia</strong></p>
-        <p>Encuentro de egresados y conferencias sobre aplicaciones matemáticas</p>
-        <a href="workshop-matematicas.html" class="btn btn-warning btn-lg" style="margin-top: 10px;">
-            Más Información e Inscripción
-        </a>
-    </div>
-
-    <h4>Call 2025-2</h4>
-    <p>
-        Are you ready to shape the future of technology, finance, and science? Apply 
-        now for our Master's in Applied Mathematics and unlock endless career opportunities
-        in cutting-edge fields such as AI, machine learning, data science, and mathematical modeling.
-        Our program offers a strong foundation in advanced mathematics combined with hands-on 
-        learning in data-driven problem-solving.
-    </p>
-	<!-- 
-    <img src="MAE_mat_apli_Redes.jpg" alt="Call 2025 Second semester." width="459" height="457">	
-	-->
-</div>
-		
-		
-<!-- Seminar -->
-<div class="col-md-8" style="height: 100vh;">
-<h3 id="seminar">Applied Math Seminar</h3>
-<strong>2025-2</strong><br />
-<ul>
-<ul>
-<li class="paper">Tuesdays at 07.30 at room 404-208. <br /><a<img class="img-responsive" src="imagen1.gif" alt=""><br> </a></li>
-</ul>
-</ul>
-	
-<strong>2025-1</strong><br />
-<ul>
-<ul>
-<li class="paper">Tuesdays at 07.30 at room 404-208. <br /><a<img class="img-responsive" src="imagen1.gif" alt=""><br> </a></li>
-</ul>
-</ul>
-<strong>2024-2</strong><br />
-<ul>
-<ul>
-<li class="paper">Mondays at 07.00 at room 206. Gloria Galeano.<br /><a<img class="img-responsive" src="imagen1.gif" alt=""><br> </a></li>
-</ul>
-</ul>
-
-</ul>
-</div>
-
-		
-            
+  <header>
+    <div class="shell">
+      <div class="topline">
+        <div>
+          <h1 class="name">Diego Gerardo Roldán</h1>
+          <p class="role">Mathematics · Scientific Computing · Universidad Nacional de Colombia</p>
         </div>
 
-
+        <nav aria-label="Primary navigation">
+          <a href="#research">Research</a>
+          <a href="#publications">Selected publications</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
-</body>
+  </header>
 
+  <main class="shell">
+    <div class="hero">
+      <div>
+        <p class="lead">
+          I work in applied mathematics at the interface between mathematical
+          structure, computation, and problems arising from science and technology.
+        </p>
+
+        <p>
+          My interests include numerical analysis, scientific computing, inverse
+          problems, quantitative image analysis, and quantum computation. I am
+          particularly interested in questions for which computation is not merely
+          a tool for obtaining an answer, but a way of understanding what the
+          underlying mathematical model can — and cannot — tell us.
+        </p>
+
+        <p>
+          I am a professor in the Department of Mathematics at the
+          <a href="https://bogota.unal.edu.co/" target="_blank" rel="noopener noreferrer">
+            Universidad Nacional de Colombia, Bogotá
+          </a>, and I participate in research and academic activities of the
+          <a href="https://cecc.unal.edu.co/" target="_blank" rel="noopener noreferrer">
+            Center of Excellence in Scientific Computing (CECC)
+          </a>.
+        </p>
+
+        <blockquote class="reflection">
+          Mathematics becomes most interesting to me when abstraction and computation
+          illuminate the same question from different directions.
+        </blockquote>
+      </div>
+
+      <figure class="portrait">
+        <!-- Keep your current file, or replace this src with the new grayscale portrait. -->
+        <img src="AG_Statistik_7c.bmp" alt="Portrait of Diego Gerardo Roldán">
+        <figcaption>
+          Applied mathematics, computation, and the geometry of difficult questions.
+        </figcaption>
+      </figure>
+    </div>
+
+    <section id="research">
+      <div class="section-grid">
+        <h2>Research</h2>
+
+        <div>
+          <p>
+            My research has evolved from quantitative image analysis and mathematical
+            modelling of material microstructures toward a broader interest in
+            computational mathematics, inverse problems, and quantum methods.
+            Across these topics, a recurring concern is the relationship between
+            information, approximation, and what can be reliably inferred from data.
+          </p>
+
+          <ul class="research-list">
+            <li>
+              <strong>Numerical analysis &amp; scientific computing</strong>
+              <span>Approximation, numerical modelling, identifiability, computational experiments.</span>
+            </li>
+            <li>
+              <strong>Inverse problems &amp; parameter estimation</strong>
+              <span>Recoverability, uncertainty, noisy observations, model-informed inference.</span>
+            </li>
+            <li>
+              <strong>Quantum computing</strong>
+              <span>Quantum algorithms, graph-based problems, numerical and scientific applications.</span>
+            </li>
+            <li>
+              <strong>Image analysis &amp; material microstructures</strong>
+              <span>FIB-SEM imaging, reconstruction, quantitative image quality, synthetic data.</span>
+            </li>
+          </ul>
+
+          <p class="small" style="margin-top:22px;">
+            Earlier work was carried out at TU Kaiserslautern / RPTU and Fraunhofer ITWM
+            in collaboration with researchers in statistics, image processing, and materials science.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-grid">
+        <h2>Selected publications</h2>
+
+        <div>
+          <article class="paper">
+            <div class="paper-title">
+              Curtaining Artifacts Generation on Synthetic FIB-SEM Data via Generative Adversarial Networks
+            </div>
+            <div class="paper-meta">
+              D. Roldán, L. Barbosa · <em>Optics Communications</em>, 2024 ·
+              <a class="quiet-link"
+                 href="https://www.sciencedirect.com/science/article/pii/S0030401824007661"
+                 target="_blank" rel="noopener noreferrer">doi / article</a>
+            </div>
+          </article>
+
+          <article class="paper">
+            <div class="paper-title">
+              Image Quality Evaluation for FIB-SEM Images
+            </div>
+            <div class="paper-meta">
+              D. Roldán, C. Redenbach, K. Schladitz, C. Kübel, S. Schlabach ·
+              <em>Journal of Microscopy</em>, 2023 ·
+              <a class="quiet-link"
+                 href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jmi.13254"
+                 target="_blank" rel="noopener noreferrer">doi / article</a>
+            </div>
+          </article>
+
+          <article class="paper">
+            <div class="paper-title">
+              Reconstructing porous structures from FIB-SEM image data:
+              Optimizing sampling scheme and image processing
+            </div>
+            <div class="paper-meta">
+              D. Roldán, C. Redenbach, K. Schladitz, M. Klingele, M. Godehardt ·
+              <em>Ultramicroscopy</em> 226, 113291, 2021 ·
+              <a class="quiet-link"
+                 href="https://doi.org/10.1016/j.ultramic.2021.113291"
+                 target="_blank" rel="noopener noreferrer">doi</a>
+            </div>
+          </article>
+
+          <article class="paper">
+            <div class="paper-title">
+              Simulating permeabilities based on 3D image data of a layered nano-porous membrane
+            </div>
+            <div class="paper-meta">
+              T. Prill, C. Redenbach, D. Roldán, M. Godehardt, K. Schladitz, S. Höhn, K. Sempf ·
+              <em>International Journal of Solids and Structures</em> 184, 3–13, 2020 ·
+              <a class="quiet-link"
+                 href="https://doi.org/10.1016/j.ijsolstr.2019.04.010"
+                 target="_blank" rel="noopener noreferrer">doi</a>
+            </div>
+          </article>
+
+          <p class="small">
+            Complete and current publication record:
+            <a href="https://scholar.google.com/citations?user=XyhukLMAAAAJ"
+               target="_blank" rel="noopener noreferrer">Google Scholar</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="section-grid">
+        <h2>Teaching</h2>
+
+        <div>
+          <p>
+            I teach courses in pure and applied mathematics, with an emphasis on
+            mathematical reasoning, computational experimentation, and the connection
+            between theory and algorithms.
+          </p>
+
+          <div class="teaching-grid">
+            <div class="teaching-item">
+              <h3>Numerical analysis</h3>
+              <p>Approximation, numerical linear algebra, interpolation, differential equations.</p>
+            </div>
+
+            <div class="teaching-item">
+              <h3>Quantum computing</h3>
+              <p>Mathematical foundations, circuits, algorithms, and computational applications.</p>
+            </div>
+
+            <div class="teaching-item">
+              <h3>Graph theory</h3>
+              <p>Structure, algorithms, combinatorial reasoning, and applications.</p>
+            </div>
+
+            <div class="teaching-item">
+              <h3>Artificial intelligence</h3>
+              <p>Mathematical foundations of learning methods and computational modelling.</p>
+            </div>
+          </div>
+
+          <p class="small" style="margin-top:26px;">
+            Course materials are shared with enrolled students through the corresponding
+            institutional or course platforms rather than indexed publicly here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-grid">
+        <h2>Contact</h2>
+
+        <div class="contact-block">
+          <div>
+            <p>
+              Department of Mathematics<br>
+              Universidad Nacional de Colombia<br>
+              Bogotá, Colombia
+            </p>
+
+            <p>
+              <span class="small">Email</span><br>
+              dgroldanj [at] unal.edu.co
+            </p>
+          </div>
+
+          <div>
+            <p>
+              <a href="https://scholar.google.com/citations?user=XyhukLMAAAAJ"
+                 target="_blank" rel="noopener noreferrer">Google Scholar</a><br>
+              <a href="https://co.linkedin.com/in/diego-roldan-69304a5a"
+                 target="_blank" rel="noopener noreferrer">LinkedIn</a><br>
+              <a href="grupo-investigacion.html">Research group</a>
+            </p>
+
+            <p class="small">
+              For institutional meetings, seminars, and student consultations,
+              please use the official university channels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      Diego Gerardo Roldán ·
+    </div>
+  </footer>
+</body>
 </html>
