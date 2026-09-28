@@ -1,13 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Research Group - Diego Gerardo Roldán</title>
+  <title>Quantum Computing Research Group - Diego Gerardo Roldán</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Existing site dependencies kept for compatibility -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Merriweather:300,400,700" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#1f2328;
+      --muted:#66707a;
+      --line:#e3e6e8;
+      --paper:#ffffff;
+      --soft:#f6f7f8;
+      --accent:#222;
+    }
+
+    body{
+      color:var(--ink);
+      background:var(--paper);
+      font-family:"Merriweather", Georgia, serif;
+      line-height:1.72;
+      font-size:15px;
+    }
+
+    .navbar{
+      margin-bottom:0;
+      border-radius:0;
+    }
+
+    .hero{
+      padding:72px 0 56px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#fafafa 0%,#fff 100%);
+    }
+
+    .kicker{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      font-family:"Oswald",sans-serif;
+      font-weight:700;
+      font-size:44px;
+      line-height:1.1;
+      margin:0 0 20px;
+    }
+
+    .hero .lead{
+      font-size:18px;
+      line-height:1.7;
+      color:#3c434a;
+      max-width:820px;
+      margin-bottom:22px;
+    }
+
+    .hero-meta{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .section{
+      padding:54px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      font-family:"Oswald",sans-serif;
+      font-size:28px;
+      margin:0 0 28px;
+    }
+
+    .section h3{
+      font-family:"Oswald",sans-serif;
+      font-size:20px;
+      margin-top:0;
+    }
+
+    .intro-box{
+      border-left:4px solid #333;
+      background:var(--soft);
+      padding:22px 24px;
+      margin-top:24px;
+    }
+
+    .theme-card, .project-card, .note-card, .person-card{
+      border-top:3px solid #222;
+      padding:18px 0 0;
+      margin-bottom:30px;
+    }
+
+    .theme-card p, .project-card p, .note-card p, .person-card p{
+      color:var(--muted);
+    }
+
+    .status{
+      display:inline-block;
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:11px;
+      padding:4px 8px;
+      border:1px solid #aaa;
+      margin-bottom:10px;
+      background:#fff;
+    }
+
+    .links a{
+      margin-right:14px;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .series-id{
+      font-family:"Oswald",sans-serif;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:12px;
+      margin-bottom:6px;
+    }
+
+    .mini{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .sidebox{
+      background:var(--soft);
+      border:1px solid var(--line);
+      padding:22px;
+      margin-bottom:22px;
+    }
+
+    .sidebox h4{
+      font-family:"Oswald",sans-serif;
+      margin-top:0;
+    }
+
+    .poster-placeholder{
+      min-height:250px;
+      border:1px dashed #aaa;
+      background:#fbfbfb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .pipeline{
+      margin:22px 0 0;
+      padding:0;
+      list-style:none;
+      counter-reset:steps;
+    }
+
+    .pipeline li{
+      counter-increment:steps;
+      margin:0 0 16px;
+      padding:0 0 16px 52px;
+      border-bottom:1px solid var(--line);
+      position:relative;
+    }
+
+    .pipeline li:before{
+      content:counter(steps);
+      position:absolute;
+      left:0;
+      top:0;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:#222;
+      color:#fff;
+      font-family:"Oswald",sans-serif;
+      text-align:center;
+      line-height:34px;
+    }
+
+    footer{
+      padding:35px 0 50px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    @media(max-width:768px){
+      .hero{padding-top:44px;}
+      .hero h1{font-size:34px;}
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +209,7 @@
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#research-nav">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -23,12 +217,12 @@
       </button>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="research-nav">
       <ul class="nav navbar-nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="grupo-investigacion.html">Research Group</a></li>
-        <li><a href="index.html#publications">Publications</a></li> 
-        <li><a href="index.html#lectures">Lectures</a></li> 
+        <li class="active"><a href="grupo-investigacion.html">Research Group</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#lectures">Lectures</a></li>
         <li><a href="index.html#seminar">Applied Math Seminar</a></li>
         <li><a href="index.html#news">News</a></li>
       </ul>
@@ -36,99 +230,342 @@
   </div>
 </nav>
 
-<!-- Page Content -->
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <div class="kicker">Department of Mathematics · Universidad Nacional de Colombia · Bogotá</div>
+    <h1>Quantum Computing and Mathematical Modeling</h1>
+    <p class="lead">
+      We study mathematical and computational aspects of quantum algorithms, with emphasis on
+      numerical methods, quantum machine learning, quantum data representations, compiler optimization,
+      scientific computing, and reproducible computational research.
+    </p>
+    <p class="hero-meta">
+      Research initiative coordinated by Dr. Diego Gerardo Roldán.
+    </p>
+  </div>
+</header>
+
 <div class="container">
-    <div class="row">
-        <!-- Main Content -->
-        <div class="col-md-8">
-            <h2>Research Group Quantum Computing (Computación Cuántica, Matemáticas, Bogotá.)</h2>
-            
-            <div class="section">
-                <h3>About Our Group</h3>
-                <p>Quantum computing is radically transforming the way we tackle problems impossible for classical computers. 
-                  Our group work in the development of advanced mathematical models powered by quantum computing. We transform complex 
-                  problems in industry and science into mathematical formulations that leverage quantum advantage.
-                  Our expertise combines differential equations, optimization, and artificial intelligence with quantum algorithms 
-                  to solve classically intractable modeling challenges.</p>
-            </div>
+  <div class="row">
 
-            <div class="section">
-                <h3>Research Lines</h3>
-                <ul>
-                    <li><strong>Quantum Computing:</strong> Research on quantum algorithms and applications</li>
-                    <li><strong>Artificial Intelligence:</strong> Machine learning and deep learning applications</li>
-                    <li><strong>Image Processing:</strong> Advanced techniques in image analysis and processing</li>
-                    <li><strong>Numerical Analysis:</strong> Development of numerical methods for complex problems</li>
-                </ul>
-            </div>
+    <main class="col-md-8">
 
-            <div class="section">
-                <h3>Team Members</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>Principal Investigator</h4>
-                        <p><strong>Dr. Diego Gerardo Roldán</strong><br>
-                        Head of Applied Mathematics Master's Program</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>Research Students</h4>
-                        <p> Julian Sierra. Applied mathematics</p>
-                        <p> Jose Fidel Casas. Applied mathematics</p>
-                        <p> Sebastian Alejandro Gomez. Data analytics</p> 
-                    </div>
-                </div>
-            </div>
+      <!-- Overview -->
+      <section class="section" id="overview">
+        <h2>Overview</h2>
+        <p>
+          The group develops mathematically grounded research projects in quantum computing and related
+          areas. Our aim is to connect quantum algorithms with concrete questions in applied mathematics,
+          numerical analysis, optimization, data analysis, and scientific computing.
+        </p>
 
-            <div class="section">
-                <h3>Current Projects</h3>
-                <ul>
-                    <li>Quantum Differential Equations: Studying physical models from a quantum perspective.</li>
-                    <li>Quantum Bayesian Networks: Modeling and solution of reliability networks.</li>
-                    <li>Quantum image representation: Image processing on quantum computers.</li>
-                </ul>
-            </div>
+        <div class="intro-box">
+          <strong>From teaching to research.</strong>
+          Several projects originate in the graduate course <em>Introduction to Quantum Computing</em>.
+          Students begin by reproducing, reformulating, or critically analyzing recent results.
+          Selected projects are subsequently developed into reproducible computational studies and,
+          when sufficient novelty is obtained, into research manuscripts.
+        </div>
+      </section>
 
-            <div class="section">
-                <h3>Collaborations</h3>
-                <p>Excelence center of scientific computation.</p>
+      <!-- Research themes -->
+      <section class="section" id="themes">
+        <h2>Research Themes</h2>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="theme-card">
+              <h3>Quantum Algorithms & Numerical Methods</h3>
+              <p>Linear algebra, differential equations, approximation, spectral methods, QSVT and algorithmic complexity.</p>
             </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="theme-card">
+              <h3>Quantum Machine Learning</h3>
+              <p>Hybrid quantum-classical models, robustness, reproducibility, benchmarking and data encoding.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="theme-card">
+              <h3>Quantum Compilation</h3>
+              <p>Gate reduction, high-level quantum instructions, topology-aware compilation and resource estimation.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="theme-card">
+              <h3>Quantum Data & Imaging</h3>
+              <p>Quantum databases, image representations, state preparation, finite-shot effects and reconstruction quality.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Current projects -->
+      <section class="section" id="projects">
+        <h2>Current Research Projects</h2>
+
+        <div class="project-card">
+          <span class="status">Active</span>
+          <h3>Topology-aware high-level quantum compilation</h3>
+          <p>
+            We study whether algebraic gate-count reductions remain advantageous after transpilation
+            to realistic hardware connectivity. The project compares CNOT/SWAP counts, depth,
+            two-qubit depth and noise-sensitive performance across several coupling graphs.
+          </p>
         </div>
 
-        <!-- Sidebar -->
-        <div class="col-md-4">
-            <div style="font-family: 'Oswald', sans-serif; font-size: 28px;"><b>Research Group</b></div><br>
-            
-            <div class="well">
-                <h4>Contact</h4>
-                <p><b>dgroldanj at unal.edu.co</b><br>
-                Department of Mathematics<br>
-                National University of Colombia<br>
-                Office 323, Yu Takeuchi building</p>
-            </div>
-
-            <div class="well">
-                <h4>Quick Links</h4>
-                <ul class="list-unstyled">
-                    <li><a href="index.html">Back to Home</a></li>
-                    <li><a href="index.html#publications">Publications</a></li>
-                    <li><a href="index.html#lectures">Lecture Materials</a></li>
-                </ul>
-            </div>
+        <div class="project-card">
+          <span class="status">Planned</span>
+          <h3>Reproducibility and robustness of quantum machine learning for malware analysis</h3>
+          <p>
+            A controlled study of hybrid QCNN/QMLP models under repeated training, alternative encodings,
+            circuit depths, noise models and classical baselines.
+          </p>
         </div>
-    </div>
+
+        <div class="project-card">
+          <span class="status">Planned</span>
+          <h3>Finite-shot stability of quantum image representations</h3>
+          <p>
+            Mathematical and numerical analysis of reconstruction error for FRQI and related image encodings,
+            including shot complexity, noise propagation and image-quality metrics.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <span class="status">Exploratory</span>
+          <h3>Approximation error and circuit complexity in QSVT</h3>
+          <p>
+            We investigate the trade-off between polynomial approximation degree, approximation error,
+            circuit depth and resource requirements in QSVT-based algorithms.
+          </p>
+        </div>
+      </section>
+
+      <!-- Research notes -->
+      <section class="section" id="research-notes">
+        <h2>Quantum Computing Research Notes · 2026</h2>
+        <p class="mini">
+          Student research notes developed in the 2026-1 edition of <em>Introduction to Quantum Computing</em>.
+          The series distinguishes expository work from reproducible research and ongoing research projects.
+        </p>
+
+        <div class="note-card">
+          <div class="series-id">QC-RN-2026-01</div>
+          <h3>Operational Framework for a Quantum Database</h3>
+          <p><strong>Catalina Velásquez Ortiz</strong></p>
+          <p>
+            Quantum databases, QRAM, dynamic database operations, no-cloning/no-deleting limitations
+            and operational models for quantum data structures.
+          </p>
+          <div class="links">
+            <a href="docs/QC-RN-2026-01-quantum-database.pdf">PDF</a>
+            <a href="#projects">Related project</a>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div class="series-id">QC-RN-2026-02 · Reproducible Research</div>
+          <h3>Optimizing Quantum Compilation via High-Level Quantum Instructions</h3>
+          <p><strong>Juan Giraldo</strong></p>
+          <p>
+            Tensor-explicit reformulation of compiler optimization theorems, together with a local
+            reproduction and extension of CNOT-count results for V-chain decompositions.
+          </p>
+          <div class="links">
+            <a href="docs/QC-RN-2026-02-quantum-compilation.pdf">PDF</a>
+            <a href="#projects">Active project</a>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div class="series-id">QC-RN-2026-03</div>
+          <h3>Quantum Singular Value Transformation: Unification and Applications</h3>
+          <p><strong>Nicolás Bello</strong></p>
+          <p>
+            Mathematical foundations of block-encoding and QSVT, with emphasis on polynomial
+            transformations and applications to credit-risk estimation.
+          </p>
+          <div class="links">
+            <a href="docs/QC-RN-2026-03-qsvt.pdf">PDF</a>
+            <a href="#projects">Related project</a>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div class="series-id">QC-RN-2026-04 · Reproducible Research</div>
+          <h3>Towards Quantum Machine Learning for Malicious Code Analysis</h3>
+          <p><strong>Santiago Rocha Pachón</strong></p>
+          <p>
+            Theoretical review and practical recreation of hybrid QMLP and QCNN experiments for
+            malware classification, with attention to reproducibility and dataset accessibility.
+          </p>
+          <div class="links">
+            <a href="docs/QC-RN-2026-04-qml-malware.pdf">PDF</a>
+            <a href="#projects">Related project</a>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div class="series-id">QC-RN-2026-05</div>
+          <h3>Quantum Image Analysis</h3>
+          <p><strong>Mateo Santiago Cardona Ayala</strong></p>
+          <p>
+            Comparison of FRQI, NEQR, GQIR, BRQI and OQIM, emphasizing qubit requirements,
+            circuit depth, finite-shot measurement and reconstruction metrics.
+          </p>
+          <div class="links">
+            <a href="docs/QC-RN-2026-05-quantum-image-analysis.pdf">PDF</a>
+            <a href="#projects">Related project</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reproducible research -->
+      <section class="section" id="reproducibility">
+        <h2>Reproducible Research</h2>
+        <p>
+          Whenever possible, research notes are accompanied by scripts, notebooks, benchmark tables and
+          experiment logs. Repositories will be linked here as they are curated and versioned.
+        </p>
+        <p class="links">
+          <a href="#">Quantum compilation repository</a>
+          <a href="#">QML reproducibility repository</a>
+          <a href="#">Quantum imaging repository</a>
+        </p>
+      </section>
+
+      <!-- People -->
+      <section class="section" id="people">
+        <h2>People</h2>
+
+        <div class="person-card">
+          <h3>Principal Investigator</h3>
+          <p>
+            <strong>Dr. Diego Gerardo Roldán</strong><br>
+            Department of Mathematics, Universidad Nacional de Colombia
+          </p>
+        </div>
+
+        <div class="person-card">
+          <h3>Current Research Students</h3>
+          <p>Julian Sierra · Applied Mathematics</p>
+          <p>Jose Fidel Casas · Applied Mathematics</p>
+          <p>Sebastian Alejandro Gomez · Data Analytics</p>
+        </div>
+
+        <div class="person-card">
+          <h3>2026 Student Contributors</h3>
+          <p>Catalina Velásquez Ortiz · Quantum databases</p>
+          <p>Juan Giraldo · Quantum compilation</p>
+          <p>Nicolás Bello · QSVT and quantum algorithms</p>
+          <p>Santiago Rocha Pachón · Quantum machine learning</p>
+          <p>Mateo Santiago Cardona Ayala · Quantum image analysis</p>
+        </div>
+      </section>
+
+      <!-- Outreach -->
+      <section class="section" id="outreach">
+        <h2>Outreach & Teaching Resources</h2>
+        <div class="row">
+          <div class="col-sm-5">
+            <!-- Replace this block with:
+                 <a href="docs/quantum-computing-poster.pdf">
+                   <img class="img-responsive" src="img/quantum-computing-poster.jpg" alt="Quantum Computing poster">
+                 </a>
+            -->
+            <div class="poster-placeholder">
+              Quantum Computing Poster<br>
+              2026<br><br>
+              Add poster preview here
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <h3>Quantum Computing — An Introduction</h3>
+            <p>
+              Introductory material covering Hilbert spaces, qubits, quantum operators, HHL,
+              Shor's algorithm and key historical milestones in quantum computing.
+            </p>
+            <p class="links">
+              <a href="docs/quantum-computing-poster.pdf">View poster</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workflow -->
+      <section class="section" id="workflow">
+        <h2>Research Workflow</h2>
+        <ol class="pipeline">
+          <li><strong>Literature study.</strong> Identify a recent problem, method or result.</li>
+          <li><strong>Critical reproduction.</strong> Reproduce theory, algorithms or computational experiments.</li>
+          <li><strong>Research extension.</strong> Formulate a new question, benchmark, theorem or numerical experiment.</li>
+          <li><strong>Open research artifact.</strong> Curate code, data, scripts and a technical research note.</li>
+          <li><strong>Research manuscript.</strong> Develop projects with sufficient novelty toward peer-reviewed publication.</li>
+        </ol>
+      </section>
+
+      <!-- Collaborations -->
+      <section class="section" id="collaborations">
+        <h2>Collaborations</h2>
+        <p>
+          Centro de Excelencia en Computacion Científica (CECC), Universidad Nacional de Colombia.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="col-md-4" style="padding-top:54px;">
+      <div class="sidebox">
+        <h4>Research Group</h4>
+        <p class="mini">
+          Quantum computing, mathematical modeling, numerical analysis and scientific computing.
+        </p>
+      </div>
+
+      <div class="sidebox">
+        <h4>Quick Navigation</h4>
+        <ul class="list-unstyled">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#themes">Research Themes</a></li>
+          <li><a href="#projects">Current Projects</a></li>
+          <li><a href="#research-notes">Research Notes</a></li>
+          <li><a href="#reproducibility">Reproducible Research</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#outreach">Outreach</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebox">
+        <h4>Contact</h4>
+        <p class="mini">
+          <strong>dgroldanj at unal.edu.co</strong><br>
+          Department of Mathematics<br>
+          Universidad Nacional de Colombia<br>
+          Bogotá, Colombia
+        </p>
+      </div>
+
+      <div class="sidebox">
+        <h4>Join the Group</h4>
+        <p class="mini">
+          Students interested in quantum algorithms, quantum machine learning, numerical methods
+          or reproducible computational research are welcome to contact the group.
+        </p>
+      </div>
+    </aside>
+
+  </div>
 </div>
 
-<style>
-.section {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-}
-.well {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-}
-</style>
+<footer>
+  <div class="container">
+    Quantum Computing and Mathematical Modeling · Universidad Nacional de Colombia
+  </div>
+</footer>
 
 </body>
 </html>
+
